@@ -21,7 +21,7 @@ const links = [
 ]
 
 const NavItem = ({ link }) => (
-  <Link to={link.url} class="mr-10 hover:text-gray-900">{link.text}</Link>
+  <Link to={link.url} class="mr-16 hover:text-gray-900">{link.text}</Link>
 )
 
 export const NavBar = () => (
