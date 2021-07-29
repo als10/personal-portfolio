@@ -26,7 +26,7 @@ const NavItem = ({ link }) => (
 
 export const NavBar = () => (
   <header class="text-gray-600">
-    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+    <div class="container mx-auto flex-wrap p-5 hidden md:flex items-center">
       <nav class="md:ml-auto flex flex-wrap text-base justify-center">
         {links.map((link, i) => <NavItem key={i} link={link} />)}
       </nav>
