@@ -21,12 +21,12 @@ const links = [
 ]
 
 const NavItem = ({ link }) => (
-  <Link to={link.url} class="mr-5 hover:text-gray-900">{link.text}</Link>
+  <Link to={link.url} class="mr-10 hover:text-gray-900">{link.text}</Link>
 )
 
 export const NavBar = () => (
-  <header class="text-gray-600">
-    <div class="container mx-auto flex-wrap p-5 hidden md:flex items-center">
+  <header class="text-gray-600 sticky top-0 z-50">
+    <div class="hidden md:flex flex-wrap mx-auto p-5 items-center">
       <nav class="md:ml-auto flex flex-wrap text-base justify-center">
         {links.map((link, i) => <NavItem key={i} link={link} />)}
       </nav>
