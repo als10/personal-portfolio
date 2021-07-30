@@ -1,7 +1,7 @@
 import * as React from "react"
 
 export const Landing = () => (
-    <section class="flex h-screen items-center fixed top-0 ml-16">
+    <section class="flex h-screen items-center top-0 ml-16">
       <div>
         <div class="mb-24 space-y-8">
           <div class="text-5xl">

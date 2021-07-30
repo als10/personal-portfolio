@@ -1,7 +1,11 @@
 import * as React from "react"
+import { NavBar } from "./NavBar"
 
 export const Layout = ({ children }) => (
-  <div class="max-w-7xl mx-auto">
-    {children}
-  </div>
+  <>
+    <NavBar />
+    <div class="max-w-7xl mx-auto">
+      {children}
+    </div>
+  </>
 )
