@@ -3,11 +3,13 @@ import { Layout } from "../components/Layout"
 import { NavBar } from "../components/NavBar"
 import { Landing } from "../components/Landing"
 import { About } from "../components/About"
+import { Experience } from "../components/Experience"
 
 export default () => (
   <Layout>
     <Landing />
     <About id="about" />
+    <Experience />
   </Layout>
 )
 
