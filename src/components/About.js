@@ -9,7 +9,7 @@ const Column = ({ style, children }) => (
 )
 
 export const About = () => (
-  <section class="px-10 pt-10 flex flex-col md:flex-row items-center">
+  <section class="md:h-screen px-10 pt-10 flex flex-col md:flex-row items-center">
     <Column>
       <Title style="ml-auto">
         Who I am
