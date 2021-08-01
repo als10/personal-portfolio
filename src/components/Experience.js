@@ -46,7 +46,7 @@ const Event = ({ experience, year, selected, setExperience }) => (
 )
 
 const Timeline = ({ selectedExperience, setExperience }) => (
-  <div class="relative grid grid-cols-5 w-1/3">
+  <div class="relative grid grid-cols-5 md:w-1/2 lg:2/5 xl:w-1/3">
     <div class="col-start-2 col-span-1 mx-auto mb-2 text-gray-600">
       Present
     </div>
@@ -63,9 +63,9 @@ const Timeline = ({ selectedExperience, setExperience }) => (
 )
 
 const ExperienceDescription = ({ experience }) => (
-  <div class="ml-8 mr-32 w-2/3">
+  <div class="ml-8 md:w-1/2 lg:3/5 xl:w-2/3">
     <div class="mb-4 space-y-2">
-      <div class="flex space-x-2">
+      <div class="flex flex-wrap space-x-2">
         <h5>{experience.role}</h5>
         <h5 class="font-light">{`@ ${experience.company}`}</h5>
       </div>
