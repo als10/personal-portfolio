@@ -8,7 +8,7 @@ const typewriterStrings = [
 ]
 
 export const Landing = () => (
-    <section class="pt-12 sm:top-0 pl-8 sm:pl-16">
+    <section class="inset-0 h-screen pt-12 sm:top-0 pl-8 sm:pl-16">
       <div>
         <div class="mb-24 space-y-8">
           <div class="text-2xl md:text-4xl lg:text-5xl">
