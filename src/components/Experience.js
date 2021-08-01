@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 
 const experiences = [
   {
@@ -60,18 +60,26 @@ const Timeline = () => (
   </div>
 )
 
-export const Experience = () => (
-  <section class="md:h-screen px-10 pt-10 flex items-center">
-    <div class="flex flex-col">
-      <h4>Where I've worked</h4>
-      <div class="flex items-center">
-        <Timeline />
-        <div class="ml-8 mr-32 w-2/3">
-          <h5>{`${experiences[0].role} @ ${experiences[0].company}`}</h5>
-          <div class="mb-2">{experiences[0].duration}</div>
-          <p>{experiences[0].description}</p>
+const ExperienceDescription = ({ experience }) => (
+  <div class="ml-8 mr-32 w-2/3">
+    <h5>{`${experience.role} @ ${experience.company}`}</h5>
+    <div class="mb-2">{experience.duration}</div>
+    <p>{experience.description}</p>
+  </div>
+)
+
+export const Experience = () => {
+  const [expIndex, setExpIndex] = useState(0)
+  
+  return (
+    <section class="md:h-screen px-10 pt-10 flex items-center">
+      <div class="flex flex-col">
+        <h4>Where I've worked</h4>
+        <div class="flex items-center">
+          <Timeline />
+          <ExperienceDescription experience={experiences[expIndex]} />
         </div>
       </div>
-    </div>
-  </section>
-)
+    </section>
+  )
+}
