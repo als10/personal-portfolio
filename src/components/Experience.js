@@ -27,7 +27,7 @@ for (let year = currentYear; year >= earliestYear; year--) {
   })
 }
 
-const Event = ({ experience, year }) => (
+const Event = ({ experience, year, setExperience }) => (
   <>
     <div class="col-start-1 ml-auto text-gray-600">
       {year ?? ""}
@@ -35,7 +35,9 @@ const Event = ({ experience, year }) => (
     <div class="col-start-2 col-span-1 m-auto bg-gray-800 shadow-xl w-5 h-1 rounded-full z-10"></div>
     <div class="col-start-3 col-span-3 mr-auto">
       {experience &&
-      <button class="text-left p-2 rounded-md hover:bg-black hover:text-white">
+      <button 
+        class="text-left p-2 rounded-md hover:bg-black hover:text-white"
+        onClick={() => setExperience(experience)}>
         <div class="font-medium">{experience.company}</div>
         <div class="italic">{experience.role}</div>
       </button>}
@@ -43,7 +45,7 @@ const Event = ({ experience, year }) => (
   </>
 )
 
-const Timeline = () => (
+const Timeline = ({ setExperience }) => (
   <div class="relative grid grid-cols-5 w-1/3">
     <div class="col-start-2 col-span-1 mx-auto mb-2 text-gray-600">
       Present
@@ -53,7 +55,7 @@ const Timeline = () => (
     </div>
     {timeline.map(({ year, experiences }) => 
       <>
-        {experiences.map(e => <Event experience={e} />)}
+        {experiences.map(e => <Event experience={e} setExperience={setExperience} />)}
         <Event year={year} />
       </>
     )}
@@ -69,15 +71,15 @@ const ExperienceDescription = ({ experience }) => (
 )
 
 export const Experience = () => {
-  const [expIndex, setExpIndex] = useState(0)
+  const [experience, setExperience] = useState(experiences[0])
   
   return (
     <section class="md:h-screen px-10 pt-10 flex items-center">
       <div class="flex flex-col">
         <h4>Where I've worked</h4>
         <div class="flex items-center">
-          <Timeline />
-          <ExperienceDescription experience={experiences[expIndex]} />
+          <Timeline setExperience={setExperience} />
+          <ExperienceDescription experience={experience} />
         </div>
       </div>
     </section>
