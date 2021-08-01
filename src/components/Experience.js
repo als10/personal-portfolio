@@ -65,43 +65,7 @@ export const Experience = () => (
     <div class="flex flex-col">
       <h4>Where I've worked</h4>
       <div class="flex items-center">
-        <div class="container w-1/3">
-          <div class="relative overflow-hidden p-10">
-              <div class="border-2-2 absolute border-opacity-20 border-gray-700 h-full border left-1/3"></div>
-              {timeline.map(({ year, experiences }) => 
-                <>
-                  {experiences.map(e =>
-                    <div class="mb-4 flex justify-between items-center w-full">
-                      <div class="w-5/12"></div>
-                      <div class="z-20 flex items-center bg-gray-800 shadow-xl w-2 h-2 rounded-full"></div>
-                      <div>
-                        <div>{e.company}</div>
-                        <div>{e.role}</div>
-                      </div>
-                    </div>
-                  )}
-
-                  <div class="mb-4 flex justify-center flex-row-reverse items-center w-full">
-                    <div class="w-5/12"></div>
-                    <div class="z-20 flex items-center bg-gray-800 shadow-xl w-2 h-2 rounded-full"></div>
-                    <div class="px-4">
-                      {year}
-                    </div>
-                  </div>
-                </>
-            // <div class="bg-green-500">
-            //   {experiences.map(e =>
-            //     <div class="block float-right">
-            //       <div>{e.company}</div>
-            //       <div>{e.role}</div>
-            //     </div>
-            //   )}
-            //   <div class="block float-left">{year}</div>
-            // </div>
-              )}
-          </div>
-        </div>
-        {/* <Timeline /> */}
+        <Timeline />
         <div class="ml-8 mr-32 w-2/3">
           <h5>{`${experiences[0].role} @ ${experiences[0].company}`}</h5>
           <div class="mb-2">{experiences[0].duration}</div>
