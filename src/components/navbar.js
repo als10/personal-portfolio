@@ -48,13 +48,10 @@ const MobileMenu = ({ menuActive, setMenuActive }) => (
 
 export const NavBar = () => {
   const [menuActive, setMenuActive] = useState(false)
-  const [bgActive, setBgActive] = useState(false)
-
-  window.addEventListener('scroll', () => setBgActive(window.scrollY >= 120))
 
   return (
-    <header class={`fixed top-0 z-50 w-screen ${bgActive && "bg-gray-600"}`}>
-      <div class={`px-8 md:px-16 ${bgActive ? "text-white" : "text-gray-600"}`}>
+    <header class="fixed top-0 z-50 w-screen bg-white">
+      <div class="px-8 md:px-16 text-gray-600">
         <div class="hidden md:flex flex-wrap mx-auto p-5 items-center">
           <nav class="flex flex-wrap justify-center ml-auto space-x-6 mr-6">
             {links.map((link, i) => <NavItem key={i} link={link} />)}
