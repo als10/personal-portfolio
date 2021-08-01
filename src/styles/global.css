@@ -24,6 +24,6 @@
   }
 
   section {
-    @apply sm:h-screen items-center flex px-10 pt-10
+    @apply sm:h-screen items-center flex px-10 pt-10 mb-16
   }
 }
