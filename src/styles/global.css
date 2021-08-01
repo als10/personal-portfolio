@@ -23,6 +23,10 @@
     @apply text-xl sm:text-2xl md:text-3xl font-medium
   }
 
+  h6 {
+    @apply text-lg sm:text-xl md:text-2xl font-light
+  }
+
   section {
     @apply sm:h-screen items-center flex px-10 pt-10 mb-16
   }
