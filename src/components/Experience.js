@@ -1,4 +1,4 @@
-import * as React from "react"
+import React from "react"
 
 const experiences = [
   {
@@ -29,23 +29,23 @@ for (let year = currentYear; year >= earliestYear; year--) {
 
 const Event = ({ experience, year }) => (
   <>
-    <div class="col-start-1 ml-auto">
+    <div class="col-start-1 ml-auto text-gray-600">
       {year ?? ""}
     </div>
     <div class="col-start-2 col-span-1 m-auto bg-gray-800 shadow-xl w-5 h-1 rounded-full z-10"></div>
     <div class="col-start-3 col-span-3 mr-auto">
       {experience &&
-      <>
-        <div>{experience.company}</div>
-        <div>{experience.role}</div>
-      </>}
+      <button class="text-left p-2 rounded-md hover:bg-black hover:text-white">
+        <div class="font-medium">{experience.company}</div>
+        <div class="italic">{experience.role}</div>
+      </button>}
     </div>
   </>
 )
 
 const Timeline = () => (
   <div class="relative grid grid-cols-5 w-1/3">
-    <div class="col-start-2 col-span-1 mx-auto mb-2">
+    <div class="col-start-2 col-span-1 mx-auto mb-2 text-gray-600">
       Present
     </div>
     <div class="col-start-2 col-span-1 mx-auto">
