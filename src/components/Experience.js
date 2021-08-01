@@ -36,7 +36,7 @@ const Event = ({ experience, year, selected, setExperience }) => (
     <div class="col-start-3 col-span-3 mr-auto">
       {experience &&
       <button 
-        class={`text-left p-4 rounded-md hover:bg-black hover:text-white ${selected ? "bg-gray-700 text-white" : ""}`}
+        class={`text-left p-4 rounded-md hover:bg-black hover:text-white ${selected ? "bg-gray-600 text-white" : ""}`}
         onClick={() => setExperience(experience)}>
         <div class="font-medium">{experience.company}</div>
         <div class="italic">{experience.role}</div>
