@@ -32,7 +32,7 @@ const Event = ({ experience, year, selected, setExperience }) => (
     <div class="col-start-1 ml-auto text-gray-600">
       {year ?? ""}
     </div>
-    <div class="col-start-2 col-span-1 m-auto bg-gray-800 shadow-xl w-5 h-1 rounded-full z-10"></div>
+    <div class="col-start-2 m-auto bg-gray-800 shadow-xl w-5 h-1 rounded-full z-10"></div>
     <div class="col-start-3 col-span-3 mr-auto">
       {experience &&
       <button 
@@ -47,10 +47,10 @@ const Event = ({ experience, year, selected, setExperience }) => (
 
 const Timeline = ({ selectedExperience, setExperience }) => (
   <div class="relative grid grid-cols-5 md:w-1/2 lg:2/5 xl:w-1/3">
-    <div class="col-start-2 col-span-1 mx-auto mb-2 text-gray-600">
+    <div class="col-start-2 mx-auto mb-2 text-gray-600">
       Present
     </div>
-    <div class="col-start-2 col-span-1 mx-auto">
+    <div class="col-start-2 mx-auto">
       <div class="border-w-1 absolute border-gray-700 h-full border"></div>
     </div>
     {timeline.map(({ year, experiences }) => 
