@@ -27,7 +27,7 @@ for (let year = currentYear; year >= earliestYear; year--) {
   })
 }
 
-const Event = ({ experience, year, setExperience }) => (
+const Event = ({ experience, year, selected, setExperience }) => (
   <>
     <div class="col-start-1 ml-auto text-gray-600">
       {year ?? ""}
@@ -36,7 +36,7 @@ const Event = ({ experience, year, setExperience }) => (
     <div class="col-start-3 col-span-3 mr-auto">
       {experience &&
       <button 
-        class="text-left p-2 rounded-md hover:bg-black hover:text-white"
+        class={`text-left p-4 rounded-md hover:bg-black hover:text-white ${selected ? "bg-gray-700 text-white" : ""}`}
         onClick={() => setExperience(experience)}>
         <div class="font-medium">{experience.company}</div>
         <div class="italic">{experience.role}</div>
@@ -45,7 +45,7 @@ const Event = ({ experience, year, setExperience }) => (
   </>
 )
 
-const Timeline = ({ setExperience }) => (
+const Timeline = ({ selectedExperience, setExperience }) => (
   <div class="relative grid grid-cols-5 w-1/3">
     <div class="col-start-2 col-span-1 mx-auto mb-2 text-gray-600">
       Present
@@ -55,7 +55,7 @@ const Timeline = ({ setExperience }) => (
     </div>
     {timeline.map(({ year, experiences }) => 
       <>
-        {experiences.map(e => <Event experience={e} setExperience={setExperience} />)}
+        {experiences.map(e => <Event experience={e} selected={selectedExperience === e} setExperience={setExperience} />)}
         <Event year={year} />
       </>
     )}
@@ -83,7 +83,7 @@ export const Experience = () => {
       <div class="flex flex-col">
         <h4>Where I've worked</h4>
         <div class="flex items-center">
-          <Timeline setExperience={setExperience} />
+          <Timeline selectedExperience={experience} setExperience={setExperience} />
           <ExperienceDescription experience={experience} />
         </div>
       </div>
