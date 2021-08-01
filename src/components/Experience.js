@@ -46,7 +46,7 @@ const Event = ({ experience, year, selected, setExperience }) => (
 )
 
 const Timeline = ({ selectedExperience, setExperience }) => (
-  <div class="relative grid grid-cols-5 md:w-1/2 lg:2/5 xl:w-1/3">
+  <div class="relative grid grid-cols-5 lg:2/5 xl:w-1/3">
     <div class="col-start-2 mx-auto mb-2 text-gray-600">
       Present
     </div>
@@ -63,7 +63,7 @@ const Timeline = ({ selectedExperience, setExperience }) => (
 )
 
 const ExperienceDescription = ({ experience }) => (
-  <div class="ml-8 md:w-1/2 lg:3/5 xl:w-2/3">
+  <div class="ml-8 lg:3/5 xl:w-2/3">
     <div class="mb-4 space-y-2">
       <div class="flex flex-wrap space-x-2">
         <h5>{experience.role}</h5>
@@ -82,7 +82,7 @@ export const Experience = () => {
     <section class="md:h-screen px-10 pt-10 flex items-center">
       <div class="flex flex-col">
         <h4>Where I've worked</h4>
-        <div class="flex items-center">
+        <div class="flex flex-col lg:flex-row items-center">
           <Timeline selectedExperience={experience} setExperience={setExperience} />
           <ExperienceDescription experience={experience} />
         </div>
