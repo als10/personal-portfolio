@@ -1,4 +1,11 @@
 import * as React from "react"
+import Typewriter from 'typewriter-effect'
+
+const typewriterStrings = [
+  'A Student',
+  'A Full Stack Developer',
+  'A Machine Learning Enthusiast'
+]
 
 export const Landing = () => (
     <section class="pt-12 sm:top-0 pl-8 sm:pl-16">
@@ -11,7 +18,13 @@ export const Landing = () => (
             Alston D'mello,
           </h1>
           <h3 class="text-gray-500">
-            a Full Stack Developer
+            <Typewriter
+              options={{
+                strings: typewriterStrings,
+                autoStart: true,
+                loop: true,
+              }}
+            />
           </h3>
         </div>
         <button class="bg-black border-0 p-8 rounded-full font-bold text-white text-3xl md:text-3xl focus:outline-none hover:bg-gray-600">
