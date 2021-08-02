@@ -1,4 +1,4 @@
-import { Link } from "gatsby"
+import scrollTo from 'gatsby-plugin-smoothscroll'
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
 
@@ -28,12 +28,12 @@ export const Landing = () => (
             />
           </h3>
         </div>
-        <Link 
+        <button
+          onClick={() => scrollTo(`#footer`)} 
           class="bg-black border-0 p-8 rounded-full font-bold text-white text-3xl md:text-3xl focus:outline-none hover:bg-gray-600"
-          to="/#footer"
         >
           Get In Touch
-        </Link>
+        </button>
       </div>
     </section>
 )
