@@ -2,7 +2,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import * as React from "react"
 
 const Column = ({ children }) => (
-  <div class="flex flex-col md:w-1/2 md:m-8">
+  <div class="flex flex-col md:w-1/2">
     {children}
   </div>
 )
