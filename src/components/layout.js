@@ -4,7 +4,7 @@ import { NavBar } from "./NavBar"
 export const Layout = ({ children }) => (
   <>
     <NavBar />
-    <div class="px-4 md:px-8">
+    <div class="px-12">
       {children}
     </div>
   </>

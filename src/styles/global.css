@@ -28,6 +28,6 @@
   }
 
   section {
-    @apply sm:h-screen items-center flex px-10 pt-10 mb-16
+    @apply sm:h-screen flex items-center py-16
   }
 }
