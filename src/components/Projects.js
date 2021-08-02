@@ -68,13 +68,13 @@ const Button = ({ text, url }) => (
 )
 
 const Technology = ({ item }) => (
-  <HighlightedText style="bg-gray-200">
+  <HighlightedText style="bg-white">
     {item}
   </HighlightedText>
 )
 
 const Project = ({ project }) => (
-  <article class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-300 sm:p-8 md:p-16 rounded-xl my-4 py-4 items-center justify-center">
+  <article class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 sm:p-8 md:p-16 rounded-xl my-4 py-4 items-center justify-center">
     <StaticImage
       class="hidden mb-8 sm:flex w-full xl:w-1/2 rounded-lg"
       alt="project demo"
