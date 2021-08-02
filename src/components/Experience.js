@@ -79,7 +79,7 @@ export const Experience = () => {
   const [experience, setExperience] = useState(experiences[0])
   
   return (
-    <section>
+    <section id="experience">
       <div class="flex flex-col">
         <h4>Where I've worked</h4>
         <div class="flex flex-col lg:space-x-8 lg:flex-row items-center">

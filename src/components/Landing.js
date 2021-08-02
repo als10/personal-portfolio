@@ -1,3 +1,4 @@
+import { Link } from "gatsby"
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
 
@@ -27,9 +28,12 @@ export const Landing = () => (
             />
           </h3>
         </div>
-        <button class="bg-black border-0 p-8 rounded-full font-bold text-white text-3xl md:text-3xl focus:outline-none hover:bg-gray-600">
+        <Link 
+          class="bg-black border-0 p-8 rounded-full font-bold text-white text-3xl md:text-3xl focus:outline-none hover:bg-gray-600"
+          to="/#footer"
+        >
           Get In Touch
-        </button>
+        </Link>
       </div>
     </section>
 )

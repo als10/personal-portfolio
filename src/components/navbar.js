@@ -3,19 +3,19 @@ import React, { useState } from "react"
 
 const links = [
   {
-    url: '#about',
+    url: '/#about',
     text: 'About'
   },
   {
-    url: '#experience',
+    url: '/#experience',
     text: 'Experience'
   },
   {
-    url: '#projects',
+    url: '/#projects',
     text: 'Projects'
   },
   {
-    url: '#skills',
+    url: '/#skills',
     text: 'Skills'
   },
 ]
