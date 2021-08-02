@@ -72,13 +72,13 @@ const Technology = ({ item }) => (
 )
 
 const Project = ({ project }) => (
-  <article class="flex flex-col xl:flex-row space-x-8 space-y-8 bg-gray-300 my-4 p-4 sm:p-8 md:p-16 rounded-xl items-center">
+  <article class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 space-y-8 bg-gray-300 my-4 p-4 sm:p-8 md:p-16 rounded-xl items-center">
     <StaticImage
-      class="hidden sm:flex w-4/5 xl:w-3/5 rounded-lg"
+      class="hidden sm:flex w-full xl:w-1/2 rounded-lg"
       alt="project demo"
       src="../images/placeholder_image.png"
     />
-    <div class="flex flex-col space-y-4 w-full xl:w-2/5">
+    <div class="flex flex-col space-y-4 w-full xl:w-1/2">
       <div class="space-y-2">
         <h5>{project.title}</h5>
         <p class="wrap">{project.description}</p>
