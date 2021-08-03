@@ -30,7 +30,7 @@ export const Landing = () => (
         </div>
         <button
           onClick={() => scrollTo(`#footer`)} 
-          class="bg-black border-0 p-8 rounded-full font-bold text-white text-3xl md:text-3xl focus:outline-none hover:bg-gray-600"
+          class="bg-black dark:bg-gray-200 border-0 p-8 rounded-full font-bold text-white dark:text-black text-3xl md:text-3xl focus:outline-none hover:bg-gray-600 dark:hover:bg-gray-400"
         >
           Get In Touch
         </button>
