@@ -28,6 +28,6 @@
   }
 
   section {
-    @apply sm:h-screen flex items-center justify-center py-16
+    @apply sm:h-screen flex items-center py-16
   }
 }
