@@ -37,13 +37,13 @@ const skills = [
 
 const Skill = ({skill}) => (
     <div class="flex flex-col items-center">
-        <div class="h-8 sm:h-16 w-8 sm:w-16 bg-white rounded-lg mb-4"></div>
+        <div class="h-8 sm:h-16 w-8 sm:w-16 bg-white rounded-lg mb-4"/>
         <div class="text-center">{skill}</div>
     </div>
 )
 
 const Skillset = ({skillset}) => (
-    <div class="mx-auto mt-12 p-8 sm:p-16 bg-gray-200 dark:bg-gray-800 rounded-lg w-full sm:w-4/5">
+    <div class="mx-auto my-4 p-8 sm:p-16 bg-gray-200 dark:bg-gray-800 rounded-lg w-full sm:w-4/5">
         <h5 class="mb-8">{skillset.type}</h5>
         <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
             {skillset.technologies.map(t => <Skill skill={t}/>)}
