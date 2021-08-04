@@ -9,7 +9,10 @@ const sections = [
 ]
 
 const DarkModeToggle = ({darkMode, toggleTheme}) => (
-    <button onClick={toggleTheme} class="absolute top-8 left">
+    <button
+        onClick={toggleTheme}
+        class="absolute top-8 left-8 md:left-16"
+    >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
              stroke="currentColor">
             <path
@@ -37,10 +40,10 @@ const navItemsList = sections.map((s, i) => <NavItem key={i} text={s}/>)
 
 const MenuButton = ({menuActive, setMenuActive}) => (
     <button
-        class="ml-auto md:hidden absolute top-8 right-8"
+        class="md:hidden absolute top-8 right-8"
         onClick={() => setMenuActive(!menuActive)}
     >
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24"
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
              stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuActive
                 ? "M6 18L18 6M6 6l12 12"
@@ -52,7 +55,6 @@ const MenuButton = ({menuActive, setMenuActive}) => (
 const MobileMenu = ({darkMode, toggleTheme, menuActive, setMenuActive}) => (
     <div
         class={`${menuActive ? 'flex flex-col' : 'hidden'} absolute md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
-        <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
         <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
         {navItemsList}
     </div>
@@ -67,9 +69,9 @@ export const NavBar = ({darkMode, toggleTheme}) => {
 
     return (
         <header class={`fixed top-0 z-50 w-screen ${bgActive && "bg-white dark:bg-black"}`}>
+            <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
             <div class="px-8 md:px-16 text-gray-600 dark:text-gray-200 xl:text-xl">
                 <div class="hidden md:flex flex-wrap mx-auto p-5 items-center">
-                    <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
                     <nav class="flex flex-wrap justify-center ml-auto space-x-6 mr-6">
                         {navItemsList}
                     </nav>
