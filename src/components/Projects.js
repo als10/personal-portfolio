@@ -68,13 +68,13 @@ const Button = ({ text, url }) => (
 )
 
 const Technology = ({ item }) => (
-  <HighlightedText style="bg-white">
+  <HighlightedText style="bg-white dark:text-gray-800">
     {item}
   </HighlightedText>
 )
 
 const Project = ({ project }) => (
-  <article class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 sm:p-8 md:p-16 rounded-xl my-4 py-4 items-center justify-center">
+  <article class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 dark:bg-gray-800 sm:p-8 md:p-16 rounded-xl my-4 py-4 items-center justify-center">
     <StaticImage
       class="hidden mb-8 sm:flex w-full xl:w-1/2 rounded-lg"
       alt="project demo"
@@ -106,7 +106,7 @@ const ProjectsCarousel = () => (
 )
 
 export const Projects = () => (
-  <section class="h-full">
+  <section id="projects" class="h-full">
     <div class="w-full flex flex-col items-center jutify-center">
       <h4>Stuff I've made</h4>
       <ProjectsCarousel />

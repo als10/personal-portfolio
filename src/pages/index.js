@@ -4,6 +4,7 @@ import { Landing } from "../components/Landing"
 import { About } from "../components/About"
 import { Experience } from "../components/Experience"
 import { Projects } from "../components/Projects"
+import { Skills } from "../components/Skills"
 
 export default () => (
   <Layout>
@@ -11,6 +12,7 @@ export default () => (
     <About />
     <Experience />
     <Projects />
+    <Skills />
   </Layout>
 )
 

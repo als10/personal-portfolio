@@ -1,28 +1,23 @@
-import { Link } from "gatsby"
 import React, { useState } from "react"
+import scrollTo from 'gatsby-plugin-smoothscroll'
 
-const links = [
-  {
-    url: '#about',
-    text: 'About'
-  },
-  {
-    url: '#experience',
-    text: 'Experience'
-  },
-  {
-    url: '#projects',
-    text: 'Projects'
-  },
-  {
-    url: '#skills',
-    text: 'Skills'
-  },
+const sections = [
+  'About',
+  'Experience',
+  'Projects',
+  'Skills'
 ]
 
-const NavItem = ({ link }) => (
-  <Link to={link.url} class="text-center hover:border-b-2">{link.text}</Link>
+const NavItem = ({ text }) => (
+  <button
+    onClick={() => scrollTo(`#${text.toLowerCase()}`)}
+    class="text-center hover:border-b-2"
+  >
+    {text}
+  </button>
 )
+
+const navItemsList = sections.map((s, i) => <NavItem key={i} text={s} />)
 
 const MenuButton = ({ menuActive, setMenuActive }) => (
   <button
@@ -42,21 +37,24 @@ const MenuButton = ({ menuActive, setMenuActive }) => (
 const MobileMenu = ({ menuActive, setMenuActive }) => (
   <div class={`${menuActive ? 'flex flex-col' : 'hidden'} md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
     <MenuButton menuActive={menuActive} setMenuActive={setMenuActive} />
-    {links.map((link, i) => <NavItem key={i} link={link} />)}
+    {navItemsList}
   </div>
 )
 
 export const NavBar = () => {
   const [menuActive, setMenuActive] = useState(false)
+  const [bgActive, setBgActive] = useState(false)
+
+  window.addEventListener('scroll', () => setBgActive(window.scrollY >= 80))
 
   return (
-    <header class="fixed top-0 z-50 w-screen bg-white">
-      <div class="px-8 md:px-16 text-gray-600">
+    <header class={`fixed top-0 z-50 w-screen ${bgActive && "bg-white dark:bg-black"}`}>
+      <div class="px-8 md:px-16 text-gray-600 dark:text-gray-200 xl:text-xl">
         <div class="hidden md:flex flex-wrap mx-auto p-5 items-center">
           <nav class="flex flex-wrap justify-center ml-auto space-x-6 mr-6">
-            {links.map((link, i) => <NavItem key={i} link={link} />)}
+            {navItemsList}
           </nav>
-          <button class="inline-flex text-gray-600 bg-gray-100 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 rounded text-base mt-4 md:mt-0">
+          <button class="inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-400 rounded mt-4 md:mt-0">
             Resume
           </button>
         </div>
