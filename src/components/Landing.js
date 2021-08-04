@@ -9,7 +9,7 @@ const typewriterStrings = [
 ]
 
 export const Landing = () => (
-    <section class="inset-0 h-screen sm:top-0 lg:pl-8 xl:pl-16">
+    <section class="inset-0 h-screen sm:top-0 lg:pl-8">
       <div>
         <div class="mb-24 space-y-8">
           <div class="text-2xl md:text-4xl lg:text-5xl">

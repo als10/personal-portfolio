@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
+    siteUrl: "https://alstondmello.netlify.app",
     title: "Alston's Portfolio",
   },
   plugins: [
