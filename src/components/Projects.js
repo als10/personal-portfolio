@@ -110,7 +110,7 @@ export const Projects = () => (
     <section id="projects" class="h-full">
         <div class="w-full flex flex-col items-center jutify-center">
             <h4>Stuff I've made</h4>
-            <ProjectsCarousel />
+            <ProjectsCarousel/>
         </div>
     </section>
 )
