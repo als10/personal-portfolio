@@ -45,7 +45,8 @@ export const NavBar = () => {
   const [menuActive, setMenuActive] = useState(false)
   const [bgActive, setBgActive] = useState(false)
 
-  window.addEventListener('scroll', () => setBgActive(window.scrollY >= 80))
+  typeof window !== "undefined"
+    && window.addEventListener('scroll', () => setBgActive(window.scrollY >= 80))
 
   return (
     <header class={`fixed top-0 z-50 w-screen ${bgActive && "bg-white dark:bg-black"}`}>
