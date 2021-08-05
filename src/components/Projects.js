@@ -96,14 +96,15 @@ const Project = ({project}) => (
 )
 
 const ProjectsCarousel = () => {
-    const Arrow = ({ onClick, direction }) => (
+    const Arrow = ({onClick, direction}) => (
         <button onClick={onClick} class={`absolute z-10 top-1/2 ${direction === 'right' ? "-right-16" : "-left-16"}`}>
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black dark:text-white" fill="none"
+                 viewBox="0 0 24 24" stroke="currentColor">
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
                     strokeWidth={2}
-                    d={direction ==='right' ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"} />
+                    d={direction === 'right' ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"}/>
             </svg>
         </button>
     )
@@ -115,8 +116,8 @@ const ProjectsCarousel = () => {
         slidesToShow: 1,
         centerMode: true,
         centerPadding: 0,
-        nextArrow: <Arrow direction="right" />,
-        prevArrow: <Arrow direction="left" />,
+        nextArrow: <Arrow direction="right"/>,
+        prevArrow: <Arrow direction="left"/>,
         dots: true,
         swipeToSlide: true,
         autoplay: false,
