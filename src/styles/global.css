@@ -30,4 +30,14 @@
     section {
         @apply sm:h-screen flex items-center py-16
     }
+
+    .slick-track
+    {
+        display: flex !important;
+    }
+
+    .slick-slide
+    {
+        height: inherit !important;
+    }
 }

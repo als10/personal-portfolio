@@ -76,17 +76,15 @@ const Technology = ({item}) => (
 
 const Project = ({project}) => (
     <article
-        class="h-max mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 dark:bg-gray-800 sm:p-8 md:p-16 rounded-xl m-4 py-4 items-center justify-center">
+        class="xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
         <StaticImage
-            class="hidden mb-8 sm:flex w-full xl:w-1/2 rounded-lg"
+            class="hidden sm:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
             alt="project demo"
             src="../images/placeholder_image.png"
         />
-        <div class="pr-16 flex flex-col space-y-4 w-full xl:w-1/2">
-            <div class="space-y-2">
-                <h5>{project.title}</h5>
-                <p class="wrap">{project.description}</p>
-            </div>
+        <div class="pr-8 md:pr-16 xl:w-1/2">
+            <h5 class="mb-4">{project.title}</h5>
+            <p class="mb-8">{project.description}</p>
             <div class="flex flex-wrap">
                 {project.stack.map(e => <Technology item={e}/>)}
             </div>
@@ -99,14 +97,35 @@ const Project = ({project}) => (
 )
 
 const ProjectsCarousel = () => {
+    const Arrow = ({ onClick, direction }) => (
+        <button onClick={onClick} class={`absolute z-10 top-1/2 ${direction === 'right' ? "-right-16" : "-left-16"}`}>
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black dark:text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d={direction ==='right' ? "M9 5l7 7-7 7" : "M15 19l-7-7 7-7"} />
+            </svg>
+        </button>
+    )
+
     const settings = {
+        infinite: true,
+        lazyLoad: true,
+        speed: 300,
+        slidesToShow: 1,
+        centerMode: true,
+        centerPadding: 0,
+        nextArrow: <Arrow direction="right" />,
+        prevArrow: <Arrow direction="left" />,
         dots: true,
-        // infinite: true,
-        // speed: 500,
-        // slidesToShow: 1,
-        // slidesToScroll: 1
+        swipeToSlide: true,
+        autoplay: false,
+        autoplaySpeed: 5000,
+        adaptiveHeight: false,
     }
-    return <div class="w-4/5 p-8">
+
+    return <div class="relative w-5/6 h-full my-4 mx-auto">
         <Slider {...settings}>
             {projects.map(p => <Project project={p}/>)}
         </Slider>
@@ -114,7 +133,7 @@ const ProjectsCarousel = () => {
 }
 
 export const Projects = () => (
-    <section id="projects" class="h-full">
+    <section id="projects" class="h-full xl:h-screen">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
             <ProjectsCarousel/>
