@@ -8,7 +8,7 @@ import {Skills} from "../components/Skills"
 
 export default () => {
     const [darkMode, setDarkMode] = useState(
-        typeof localStorage !== "undefined" && localStorage.theme === 'dark' || (!('theme' in localStorage) && typeof window !== "undefined" && window.matchMedia('(prefers-color-scheme: dark)').matches)
+        typeof window !== "undefined" && window.localStorage.theme === 'dark' || (!('theme' in window.localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)
     )
 
     const toggleTheme = () => {
