@@ -76,21 +76,25 @@ const Technology = ({item}) => (
 
 const Project = ({project}) => (
     <article
-        class="xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
+        class="h-full xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
         <StaticImage
             class="hidden sm:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
             alt="project demo"
             src="../images/placeholder_image.png"
         />
-        <div class="pr-8 md:pr-16 xl:w-1/2">
-            <h5 class="mb-4">{project.title}</h5>
-            <p class="mb-8">{project.description}</p>
-            <div class="flex flex-wrap">
-                {project.stack.map(e => <Technology item={e}/>)}
+        <div class="relative h-96 sm:h-72 lg:h-60 xl:h-80 xl:w-1/2">
+            <div class="absolute top-0">
+                <h5 class="mb-4">{project.title}</h5>
+                <p>{project.description}</p>
             </div>
-            <div class="flex flex-wrap">
-                <Button text="Visit Project" url={project.link}/>
-                <Button text="View Code" url={project.github}/>
+            <div class="absolute bottom-0">
+                <div class="flex flex-wrap">
+                    {project.stack.map(e => <Technology item={e}/>)}
+                </div>
+                <div class="flex flex-wrap">
+                    <Button text="Visit Project" url={project.link}/>
+                    <Button text="View Code" url={project.github}/>
+                </div>
             </div>
         </div>
     </article>
