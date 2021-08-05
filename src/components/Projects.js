@@ -1,8 +1,9 @@
 import {Link} from "gatsby"
 import {StaticImage} from "gatsby-plugin-image"
 import React from "react"
-// import Carousel from '@brainhubeu/react-carousel';
-// import '@brainhubeu/react-carousel/lib/style.css';
+import Slider from "react-slick"
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const projects = [
     {
@@ -75,7 +76,7 @@ const Technology = ({item}) => (
 
 const Project = ({project}) => (
     <article
-        class="mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 dark:bg-gray-800 sm:p-8 md:p-16 rounded-xl my-4 py-4 items-center justify-center">
+        class="h-max mx-auto max-w-xl xl:max-w-5xl xl:flex xl:flex-row space-x-8 bg-gray-200 dark:bg-gray-800 sm:p-8 md:p-16 rounded-xl m-4 py-4 items-center justify-center">
         <StaticImage
             class="hidden mb-8 sm:flex w-full xl:w-1/2 rounded-lg"
             alt="project demo"
@@ -97,18 +98,24 @@ const Project = ({project}) => (
     </article>
 )
 
-const ProjectsCarousel = () => (
-    <div class="flex flex-wrap">
-        {projects.map(p => <Project project={p}/>)}
+const ProjectsCarousel = () => {
+    const settings = {
+        dots: true,
+        // infinite: true,
+        // speed: 500,
+        // slidesToShow: 1,
+        // slidesToScroll: 1
+    }
+    return <div class="w-4/5 p-8">
+        <Slider {...settings}>
+            {projects.map(p => <Project project={p}/>)}
+        </Slider>
     </div>
-    // <Carousel plugins={['arrows']}>
-    //   {projects.map(p => <Project project={p} />)}
-    // </Carousel>
-)
+}
 
 export const Projects = () => (
     <section id="projects" class="h-full">
-        <div class="w-full flex flex-col items-center jutify-center">
+        <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
             <ProjectsCarousel/>
         </div>

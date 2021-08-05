@@ -24,8 +24,8 @@ const socialMediaIds = [
     }
 ]
 
-export const Socials = () => (
-    <div class="flex space-x-4 text-gray-800 dark:text-gray-200 justify-center mb-8">
+export const Socials = ({style}) => (
+    <div class={`${style ?? ""} flex space-x-4 text-gray-800 dark:text-gray-200 justify-center mb-8`}>
         {socialMediaIds.map(s =>
             <a href={`${s.baseUrl}${s.id}`} target="_blank" rel="noreferrer">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 24 24">

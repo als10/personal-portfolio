@@ -1,5 +1,6 @@
 import React, {useState} from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll'
+import {Socials} from "./Socials";
 
 const sections = [
     'About',
@@ -57,6 +58,7 @@ const MobileMenu = ({darkMode, toggleTheme, menuActive, setMenuActive}) => (
         class={`${menuActive ? 'flex flex-col' : 'hidden'} absolute md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
         <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
         {navItemsList}
+        <Socials/>
     </div>
 )
 
