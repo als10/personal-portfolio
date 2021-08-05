@@ -11,48 +11,43 @@ const projects = [
         stack: ['MongoDB', 'Express', 'ReactJS', 'NodeJS'],
         date: 'May 2021',
         description: 'A web app that allows users to create accounts and post side project ideas for those who lack inspiration.',
-        link: '',
-        github: ''
+        link: 'https://side-project-ideas.herokuapp.com/',
+        github: 'https://github.com/als10/side-project-ideas'
     },
     {
         title: 'Climb',
         stack: ['C#', 'Unity'],
         date: 'May to June 2020',
         description: 'An Android game with simple controls, in which a player has to climb up a building without clicking in the wrong direction. Self-taught Unity and C# for its development and self-designed all in-game graphics.',
-        link: '',
-        github: ''
+        link: 'https://play.google.com/store/apps/details?id=com.AlstonDmello.Climb',
     },
     {
         title: 'Cricket Statistics Calculator',
         stack: ['Java', 'SQLite', 'Android Studio'],
         date: 'December 2018 to February 2019',
         description: 'An Android app that helps cricketers track the stats from all their matches and stores it in a database.',
-        link: '',
-        github: ''
+        link: 'https://play.google.com/store/apps/details?id=com.alstondmello.cricketcareertracker',
     },
     {
         title: 'Coffee Farm Tools',
         stack: ['Java', 'Android Studio'],
         date: 'July to September 2018',
         description: 'An Android app that helps coffee farmers by providing ready-made calculators for their various needs.',
-        link: '',
-        github: ''
+        link: 'https://play.google.com/store/apps/details?id=com.estate.android.fertilizerpro',
     },
     {
         title: 'Tic-Tac-Toe AI',
         stack: ['Python'],
         date: 'January 2021',
         description: 'An AI that uses the minimax algorithm to always win or draw a game of tic-tac-toe.',
-        link: '',
-        github: ''
+        github: 'https://github.com/als10/tictactoe'
     },
     {
         title: 'Online Course Management System',
         stack: ['Python', 'MySQL', 'PyQt'],
         date: 'July 2020',
         description: 'A Python program that stores details of online courses from different websites in one place, and makes finding relevant online course easy with sort and search functionality.',
-        link: '',
-        github: ''
+        github: 'https://github.com/als10/course-central'
     },
 ]
 
@@ -64,7 +59,7 @@ const HighlightedText = ({style, children}) => (
 
 const Button = ({text, url}) => (
     <HighlightedText style="xl:p-4 bg-black text-white hover:bg-white hover:text-black hover:border-black">
-        <Link to={url}>{text}</Link>
+        <a href={url} target="_blank">{text}</a>
     </HighlightedText>
 )
 
@@ -92,8 +87,8 @@ const Project = ({project}) => (
                     {project.stack.map(e => <Technology item={e}/>)}
                 </div>
                 <div class="flex flex-wrap">
-                    <Button text="Visit Project" url={project.link}/>
-                    <Button text="View Code" url={project.github}/>
+                    {project.link && <Button text="Visit Project" url={project.link}/>}
+                    {project.github && <Button text="View Code" url={project.github}/>}
                 </div>
             </div>
         </div>
