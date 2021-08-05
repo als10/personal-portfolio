@@ -12,7 +12,7 @@ const sections = [
 const DarkModeToggle = ({darkMode, toggleTheme}) => (
     <button
         onClick={toggleTheme}
-        class="absolute top-8 left-8 md:left-16"
+        class="mr-auto"
     >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
              stroke="currentColor">
@@ -41,7 +41,7 @@ const navItemsList = sections.map((s, i) => <NavItem key={i} text={s}/>)
 
 const MenuButton = ({menuActive, setMenuActive}) => (
     <button
-        class="md:hidden absolute top-8 right-8"
+        class="inline-flex md:hidden"
         onClick={() => setMenuActive(!menuActive)}
     >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
@@ -71,19 +71,19 @@ export const NavBar = ({darkMode, toggleTheme}) => {
 
     return (
         <header class={`fixed top-0 z-50 w-screen ${bgActive && "bg-white dark:bg-black"}`}>
-            <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
-            <div class="px-8 md:px-16 text-gray-600 dark:text-gray-200 xl:text-xl">
-                <div class="hidden md:flex flex-wrap mx-auto p-5 items-center">
-                    <nav class="flex flex-wrap justify-center ml-auto space-x-6 mr-6">
+            <div class="px-8 md:px-16 text-gray-600 dark:text-gray-200 xl:text-md">
+                <div class="flex flex-wrap mx-auto p-5 items-center">
+                    <DarkModeToggle darkMode={darkMode} toggleTheme={toggleTheme}/>
+                    <nav class="hidden md:flex flex-wrap justify-center ml-auto space-x-6 mr-6">
                         {navItemsList}
                     </nav>
                     <button
-                        class="inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-200 dark:hover:bg-gray-400 rounded mt-4 md:mt-0">
+                        class="hidden md:inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 py-1 px-3 hover:bg-gray-200 dark:hover:bg-gray-400 rounded">
                         Resume
                     </button>
+                    <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
                 </div>
             </div>
-            <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
             <MobileMenu darkMode={darkMode} toggleTheme={toggleTheme} menuActive={menuActive}
                         setMenuActive={setMenuActive}/>
         </header>
