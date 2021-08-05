@@ -58,7 +58,7 @@ const HighlightedText = ({style, children}) => (
 )
 
 const Button = ({text, url}) => (
-    <HighlightedText style="xl:p-4 bg-black text-white hover:bg-white hover:text-black hover:border-black">
+    <HighlightedText style="xl:p-4 bg-gray-600 text-white hover:bg-white hover:text-black hover:border-black">
         <a href={url} target="_blank">{text}</a>
     </HighlightedText>
 )
@@ -83,7 +83,7 @@ const Project = ({project}) => (
                 <p>{project.description}</p>
             </div>
             <div class="absolute bottom-0">
-                <div class="flex flex-wrap">
+                <div class="mb-2 flex flex-wrap">
                     {project.stack.map(e => <Technology item={e}/>)}
                 </div>
                 <div class="flex flex-wrap">
