@@ -30,4 +30,12 @@
     section {
         @apply sm:h-screen flex items-center py-16
     }
+
+    .slick-dots li button::before {
+        @apply dark:text-gray-200
+    }
+
+    .slick-dots li.slick-active button::before {
+        @apply dark:text-white
+    }
 }
