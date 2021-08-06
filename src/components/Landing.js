@@ -1,6 +1,7 @@
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
+import {Socials} from "./Socials";
 
 const typewriterStrings = [
     'A Student',
@@ -9,7 +10,7 @@ const typewriterStrings = [
 ]
 
 export const Landing = () => (
-    <section class="inset-0 h-screen sm:top-0 lg:pl-8 xl:pl-16">
+    <section class="relative inset-0 h-screen sm:top-0 lg:pl-8 xl:pl-16">
         <div>
             <div class="mb-24 space-y-8">
                 <div class="text-2xl md:text-4xl lg:text-5xl">
@@ -28,12 +29,9 @@ export const Landing = () => (
                     />
                 </h3>
             </div>
-            <button
-                onClick={() => scrollTo(`#footer`)}
-                class="bg-black dark:bg-gray-200 border-0 p-8 rounded-full font-bold text-white dark:text-black text-3xl md:text-3xl focus:outline-none hover:bg-gray-600 dark:hover:bg-gray-400"
-            >
-                Get In Touch
-            </button>
+            <div class="absolute bottom-8 left-4">
+                <Socials />
+            </div>
         </div>
     </section>
 )
