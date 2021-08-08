@@ -1,5 +1,7 @@
 import {StaticImage} from "gatsby-plugin-image"
 import * as React from "react"
+import {graphql} from "gatsby";
+import {MDXRenderer} from "gatsby-plugin-mdx";
 
 const Column = ({children}) => (
     <div class="flex flex-col md:w-1/2">
@@ -7,14 +9,22 @@ const Column = ({children}) => (
     </div>
 )
 
-export const About = () => (
+export const query = graphql`
+    query {
+      mdx(frontmatter: {type: {eq: "About"}}) {
+        body
+      }
+    }
+`
+
+export default ({data}) => (
     <section
         id="about"
         class="flex-col md:flex-row"
     >
         <Column>
             <h4>Who am I</h4>
-            <p></p>
+            <MDXRenderer>{data.mdx.body}</MDXRenderer>
         </Column>
         <Column>
             <StaticImage
