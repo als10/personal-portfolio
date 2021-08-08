@@ -1,4 +1,3 @@
-import scrollTo from 'gatsby-plugin-smoothscroll'
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
 import {Socials} from "./Socials";

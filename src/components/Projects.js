@@ -1,55 +1,10 @@
-import {Link} from "gatsby"
+import {graphql} from "gatsby"
+import { MDXRenderer } from 'gatsby-plugin-mdx'
 import {StaticImage} from "gatsby-plugin-image"
 import React from "react"
 import Slider from "react-slick"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
-const projects = [
-    {
-        title: 'Side Project Ideas',
-        stack: ['MongoDB', 'Express', 'ReactJS', 'NodeJS'],
-        date: 'May 2021',
-        description: 'A web app that allows users to create accounts and post side project ideas for those who lack inspiration.',
-        link: 'https://side-project-ideas.herokuapp.com/',
-        github: 'https://github.com/als10/side-project-ideas'
-    },
-    {
-        title: 'Climb',
-        stack: ['C#', 'Unity'],
-        date: 'May to June 2020',
-        description: 'An Android game with simple controls, in which a player has to climb up a building without clicking in the wrong direction. Self-taught Unity and C# for its development and self-designed all in-game graphics.',
-        link: 'https://play.google.com/store/apps/details?id=com.AlstonDmello.Climb',
-    },
-    {
-        title: 'Cricket Statistics Calculator',
-        stack: ['Java', 'SQLite', 'Android Studio'],
-        date: 'December 2018 to February 2019',
-        description: 'An Android app that helps cricketers track the stats from all their matches and stores it in a database.',
-        link: 'https://play.google.com/store/apps/details?id=com.alstondmello.cricketcareertracker',
-    },
-    {
-        title: 'Coffee Farm Tools',
-        stack: ['Java', 'Android Studio'],
-        date: 'July to September 2018',
-        description: 'An Android app that helps coffee farmers by providing ready-made calculators for their various needs.',
-        link: 'https://play.google.com/store/apps/details?id=com.estate.android.fertilizerpro',
-    },
-    {
-        title: 'Tic-Tac-Toe AI',
-        stack: ['Python'],
-        date: 'January 2021',
-        description: 'An AI that uses the minimax algorithm to always win or draw a game of tic-tac-toe.',
-        github: 'https://github.com/als10/tictactoe'
-    },
-    {
-        title: 'Online Course Management System',
-        stack: ['Python', 'MySQL', 'PyQt'],
-        date: 'July 2020',
-        description: 'A Python program that stores details of online courses from different websites in one place, and makes finding relevant online course easy with sort and search functionality.',
-        github: 'https://github.com/als10/course-central'
-    },
-]
 
 const HighlightedText = ({style, children}) => (
     <div class={`text-sm sm:text-base p-2 m-1 rounded-lg ${style ?? ""}`}>
@@ -79,23 +34,24 @@ const Project = ({project}) => (
         />
         <div class="relative h-96 sm:h-72 lg:h-60 xl:h-80 xl:w-1/2">
             <div class="absolute top-0">
-                <h5 class="mb-4">{project.title}</h5>
-                <p>{project.description}</p>
+                <h5 class="mb-4">{project.frontmatter.name}</h5>
+                <div class="italic">{project.frontmatter.date}</div>
+                <MDXRenderer>{project.body}</MDXRenderer>
             </div>
             <div class="absolute bottom-0">
                 <div class="mb-2 flex flex-wrap">
-                    {project.stack.map(e => <Technology item={e}/>)}
+                    {project.frontmatter.stack.map(e => <Technology item={e}/>)}
                 </div>
                 <div class="flex flex-wrap">
-                    {project.link && <Button text="Visit Project" url={project.link}/>}
-                    {project.github && <Button text="View Code" url={project.github}/>}
+                    {project.frontmatter.link && <Button text="Visit Project" url={project.frontmatter.link}/>}
+                    {project.frontmatter.github && <Button text="View Code" url={project.frontmatter.github}/>}
                 </div>
             </div>
         </div>
     </article>
 )
 
-const ProjectsCarousel = () => {
+const ProjectsCarousel = ({projects}) => {
     const Arrow = ({onClick, direction}) => (
         <button onClick={onClick} class={`absolute z-10 top-1/2 ${direction === 'right' ? "-right-16" : "-left-16"}`}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black dark:text-white" fill="none"
@@ -127,16 +83,34 @@ const ProjectsCarousel = () => {
 
     return <div class="relative w-5/6 h-full my-4 mx-auto">
         <Slider {...settings}>
-            {projects.map(p => <Project project={p}/>)}
+            {projects.map(p => <Project key={p.id} project={p}/>)}
         </Slider>
     </div>
 }
 
-export const Projects = () => (
+export const query = graphql`
+    query {
+      allMdx(filter: {frontmatter: {type: {eq: "Project"}}}) {
+        nodes {
+          frontmatter {
+            stack
+            name
+            github
+            link
+            date
+          }
+          id
+          body
+        }
+      }
+    }
+`
+
+export default ({data}) => (
     <section id="projects" class="h-full xl:h-screen">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
-            <ProjectsCarousel/>
+            <ProjectsCarousel projects={data.allMdx.nodes}/>
         </div>
     </section>
 )
