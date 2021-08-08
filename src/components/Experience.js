@@ -3,16 +3,7 @@ import {graphql} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
 let experiences = []
-
-const currentYear = new Date().getFullYear()
-const earliestYear = experiences.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
-const timeline = []
-for (let year = currentYear; year >= earliestYear; year--) {
-    timeline.push({
-        year: year,
-        experiences: experiences.filter(e => e.yearStart === year)
-    })
-}
+let timeline = []
 
 const Event = ({experience, year, selected, setExperience}) => (
     <>
@@ -89,6 +80,15 @@ export default ({data}) => {
         duration: e.frontmatter.duration,
         description: e.body,
     }))
+
+    const currentYear = new Date().getFullYear()
+    const earliestYear = experiences.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
+    for (let year = currentYear; year >= earliestYear; year--) {
+        timeline.push({
+            year: year,
+            experiences: experiences.filter(e => e.yearStart === year)
+        })
+    }
 
     const [experience, setExperience] = useState(experiences[0])
 
