@@ -8,6 +8,13 @@ module.exports = {
     "gatsby-plugin-postcss",
     "gatsby-plugin-image",
     "gatsby-plugin-sharp",
-    "gatsby-plugin-smoothscroll"
+    "gatsby-plugin-smoothscroll",
+    {
+      resolve: "gatsby-source-filesystem",
+      options: {
+        name: `content`,
+        path: `${__dirname}/content`,
+      }
+    },
   ],
 };
