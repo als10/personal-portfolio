@@ -1,6 +1,6 @@
 import {StaticImage} from "gatsby-plugin-image"
 import * as React from "react"
-import {graphql} from "gatsby";
+import {graphql, useStaticQuery} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
 const Column = ({children}) => (
@@ -9,16 +9,16 @@ const Column = ({children}) => (
     </div>
 )
 
-export const query = graphql`
-    query {
-      mdx(frontmatter: {type: {eq: "About"}}) {
-        body
-      }
-    }
-`
+export default () => {
+    const data = useStaticQuery(graphql`
+        query {
+          mdx(frontmatter: {type: {eq: "About"}}) {
+            body
+          }
+        }
+    `)
 
-export default ({data}) => (
-    <section
+    return <section
         id="about"
         class="flex-col md:flex-row"
     >
@@ -33,4 +33,4 @@ export default ({data}) => (
             />
         </Column>
     </section>
-)
+}

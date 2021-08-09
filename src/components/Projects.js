@@ -1,4 +1,4 @@
-import {graphql} from "gatsby"
+import {graphql, useStaticQuery} from "gatsby"
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import {StaticImage} from "gatsby-plugin-image"
 import React from "react"
@@ -34,24 +34,55 @@ const Project = ({project}) => (
         />
         <div class="relative h-96 sm:h-72 lg:h-60 xl:h-80 xl:w-1/2">
             <div class="absolute top-0">
-                <h5 class="mb-4">{project.frontmatter.name}</h5>
-                <div class="italic">{project.frontmatter.date}</div>
+                <h5 class="mb-4">{project.name}</h5>
+                <div class="italic">{project.date}</div>
                 <MDXRenderer>{project.body}</MDXRenderer>
             </div>
             <div class="absolute bottom-0">
                 <div class="mb-2 flex flex-wrap">
-                    {project.frontmatter.stack.map(e => <Technology item={e}/>)}
+                    {project.stack.map(e => <Technology item={e}/>)}
                 </div>
                 <div class="flex flex-wrap">
-                    {project.frontmatter.link && <Button text="Visit Project" url={project.frontmatter.link}/>}
-                    {project.frontmatter.github && <Button text="View Code" url={project.frontmatter.github}/>}
+                    {project.link && <Button text="Visit Project" url={project.link}/>}
+                    {project.github && <Button text="View Code" url={project.github}/>}
                 </div>
             </div>
         </div>
     </article>
 )
 
-const ProjectsCarousel = ({projects}) => {
+const ProjectsCarousel = () => {
+
+    const data = useStaticQuery(graphql`
+        query {
+          allMdx(filter: {frontmatter: {type: {eq: "Project"}}}) {
+            nodes {
+              frontmatter {
+                stack
+                name
+                github
+                link
+                date
+              }
+              id
+              body
+            }
+          }
+        }
+    `)
+
+    const projects = data.allMdx.nodes.map(p => (
+        {
+            id: p.id,
+            name: p.frontmatter.name,
+            body: p.body,
+            date: p.frontmatter.date,
+            stack: p.frontmatter.stack,
+            github: p.frontmatter.github,
+            link: p.frontmatter.link
+        }
+    ))
+
     const Arrow = ({onClick, direction}) => (
         <button onClick={onClick} class={`absolute z-10 top-1/2 ${direction === 'right' ? "-right-16" : "-left-16"}`}>
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 text-black dark:text-white" fill="none"
@@ -88,29 +119,11 @@ const ProjectsCarousel = ({projects}) => {
     </div>
 }
 
-export const query = graphql`
-    query {
-      allMdx(filter: {frontmatter: {type: {eq: "Project"}}}) {
-        nodes {
-          frontmatter {
-            stack
-            name
-            github
-            link
-            date
-          }
-          id
-          body
-        }
-      }
-    }
-`
-
-export default ({data}) => (
+export default () => (
     <section id="projects" class="h-full xl:h-screen">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
-            <ProjectsCarousel projects={data.allMdx.nodes}/>
+            <ProjectsCarousel />
         </div>
     </section>
 )
