@@ -29,7 +29,7 @@ export const Landing = () => (
                 </h3>
             </div>
             <div class="absolute bottom-8 left-4">
-                <Socials />
+                <Socials/>
             </div>
         </div>
     </section>

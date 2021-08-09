@@ -2,43 +2,6 @@ import React, {useState} from "react"
 import {graphql, useStaticQuery} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
-const data = useStaticQuery(graphql`
-    query {
-      allMdx(filter: {frontmatter: {type: {eq: "Experience"}}}) {
-        nodes {
-          id
-          body
-          frontmatter {
-            company
-            duration
-            role
-            yearStart
-          }
-        }
-      }
-    }
-`)
-
-const experiences = data.allMdx.nodes.map(e => ({
-    id: e.id,
-    role: e.frontmatter.role,
-    company: e.frontmatter.company,
-    yearStart: e.frontmatter.yearStart,
-    duration: e.frontmatter.duration,
-    description: e.body,
-}))
-
-const currentYear = new Date().getFullYear()
-const earliestYear = experiences.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
-
-let timeline = []
-for (let year = currentYear; year >= earliestYear; year--) {
-    timeline.push({
-        year: year,
-        experiences: experiences.filter(e => e.yearStart === year)
-    })
-}
-
 const Event = ({experience, year, selected, setExperience}) => (
     <>
         <div class="col-start-1 ml-auto text-gray-600 dark:text-gray-400">
@@ -57,7 +20,7 @@ const Event = ({experience, year, selected, setExperience}) => (
     </>
 )
 
-const Timeline = ({selectedExperience, setExperience}) => (
+const Timeline = ({timeline, selectedExperience, setExperience}) => (
     <div class="relative grid grid-cols-5 mb-16 lg:2/5 xl:w-1/3">
         <div class="col-start-2 mx-auto mb-2 text-gray-600 dark:text-gray-400">
             Present
@@ -89,6 +52,43 @@ const ExperienceDescription = ({experience}) => (
 )
 
 export default () => {
+    const data = useStaticQuery(graphql`
+    query {
+      allMdx(filter: {frontmatter: {type: {eq: "Experience"}}}) {
+        nodes {
+          id
+          body
+          frontmatter {
+            company
+            duration
+            role
+            yearStart
+          }
+        }
+      }
+    }
+`)
+
+    const experiences = data.allMdx.nodes.map(e => ({
+        id: e.id,
+        role: e.frontmatter.role,
+        company: e.frontmatter.company,
+        yearStart: e.frontmatter.yearStart,
+        duration: e.frontmatter.duration,
+        description: e.body,
+    }))
+
+    const currentYear = new Date().getFullYear()
+    const earliestYear = experiences.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
+
+    let timeline = []
+    for (let year = currentYear; year >= earliestYear; year--) {
+        timeline.push({
+            year: year,
+            experiences: experiences.filter(e => e.yearStart === year)
+        })
+    }
+
     const [experience, setExperience] = useState(experiences[0])
 
     return (
@@ -96,7 +96,11 @@ export default () => {
             <div class="flex flex-col">
                 <h4>Where I've worked</h4>
                 <div class="flex flex-col lg:space-x-8 lg:flex-row items-center">
-                    <Timeline selectedExperience={experience} setExperience={setExperience}/>
+                    <Timeline
+                        timeline={timeline}
+                        selectedExperience={experience}
+                        setExperience={setExperience}
+                    />
                     <ExperienceDescription experience={experience}/>
                 </div>
             </div>

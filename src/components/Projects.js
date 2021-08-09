@@ -1,5 +1,5 @@
 import {graphql, useStaticQuery} from "gatsby"
-import { MDXRenderer } from 'gatsby-plugin-mdx'
+import {MDXRenderer} from 'gatsby-plugin-mdx'
 import {StaticImage} from "gatsby-plugin-image"
 import React from "react"
 import Slider from "react-slick"
@@ -123,7 +123,7 @@ export default () => (
     <section id="projects" class="h-full xl:h-screen">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
-            <ProjectsCarousel />
+            <ProjectsCarousel/>
         </div>
     </section>
 )
