@@ -1,6 +1,7 @@
 import React, {useState} from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll'
-import {Socials} from "./Socials";
+import {Socials} from "./Socials"
+import Resume from "../static/Resume.pdf"
 
 const sections = [
     'About',
@@ -58,8 +59,18 @@ const MobileMenu = ({menuActive, setMenuActive}) => (
         class={`${menuActive ? 'flex flex-col' : 'hidden'} absolute md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
         <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
         {navItemsList}
+        <ResumeButton/>
         <Socials/>
     </div>
+)
+
+const ResumeButton = () => (
+    <a
+        className="md:inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 py-1 px-3 hover:bg-gray-200 dark:hover:bg-gray-400 rounded text-center"
+        href={Resume}
+        target="_blank">
+        Resume
+    </a>
 )
 
 export const NavBar = ({darkMode, toggleTheme}) => {
@@ -77,10 +88,9 @@ export const NavBar = ({darkMode, toggleTheme}) => {
                     <nav class="hidden md:flex flex-wrap justify-center ml-auto space-x-6 mr-6">
                         {navItemsList}
                     </nav>
-                    <button
-                        class="hidden md:inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 py-1 px-3 hover:bg-gray-200 dark:hover:bg-gray-400 rounded">
-                        Resume
-                    </button>
+                    <div class="hidden md:block">
+                        <ResumeButton />
+                    </div>
                     <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
                 </div>
             </div>
