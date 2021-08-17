@@ -82,7 +82,7 @@ export const Navbar = ({darkMode, toggleTheme}) => {
                         {navItemsList}
                     </nav>
                     <div class="hidden md:block">
-                        <ResumeButton />
+                        <ResumeButton/>
                     </div>
                     <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
                 </div>
