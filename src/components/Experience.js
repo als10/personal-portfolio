@@ -53,21 +53,21 @@ const ExperienceDescription = ({experience}) => (
 
 export default () => {
     const data = useStaticQuery(graphql`
-    query {
-      allMdx(filter: {frontmatter: {type: {eq: "Experience"}}}) {
-        nodes {
-          id
-          body
-          frontmatter {
-            company
-            duration
-            role
-            yearStart
+        query {
+          allMdx(filter: {frontmatter: {type: {eq: "Experience"}}}) {
+            nodes {
+              id
+              body
+              frontmatter {
+                company
+                duration
+                role
+                yearStart
+              }
+            }
           }
         }
-      }
-    }
-`)
+    `)
 
     const experiences = data.allMdx.nodes.map(e => ({
         id: e.id,
