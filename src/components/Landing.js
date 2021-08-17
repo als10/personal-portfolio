@@ -1,12 +1,7 @@
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
 import {Socials} from "./Socials";
-
-const typewriterStrings = [
-    'A Student',
-    'A Full Stack Developer',
-    'A Machine Learning Enthusiast'
-]
+import typewriterStrings from "../constants/typewriterStrings.json"
 
 export const Landing = () => (
     <section class="relative inset-0 h-screen sm:top-0 lg:pl-8 xl:pl-16">
