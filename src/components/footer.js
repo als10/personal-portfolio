@@ -1,5 +1,5 @@
 import React from "react"
-import {Socials} from "./Socials"
+import {Socials} from "./socials"
 
 export const Footer = () => (
     <footer

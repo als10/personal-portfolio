@@ -1,5 +1,5 @@
 import React from "react"
-import skills from "../../content/skills.json"
+import skills from "../../../content/skills.json"
 
 const Skill = ({skill}) => (
     <div class="flex flex-col items-center">

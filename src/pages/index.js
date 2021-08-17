@@ -1,10 +1,10 @@
 import React, {useState} from "react"
-import {Layout} from "../components/Layout"
-import {Landing} from "../components/Landing"
-import About from "../components/About"
-import Experience from "../components/Experience"
-import Projects from "../components/Projects"
-import {Skills} from "../components/Skills"
+import {Layout} from "../components/layout"
+import {Landing} from "../components/sections/landing"
+import About from "../components/sections/about"
+import Experience from "../components/sections/experience"
+import Projects from "../components/sections/projects"
+import {Skills} from "../components/sections/skills"
 
 export default () => {
     const [darkMode, setDarkMode] = useState(
