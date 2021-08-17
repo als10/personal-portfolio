@@ -28,11 +28,11 @@ const Project = ({project}) => (
     <article
         class="h-full xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
         <StaticImage
-            class="hidden md:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
+            class="hidden lg:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
             alt="project demo"
             src="../images/placeholder_image.png"
         />
-        <div class="relative h-96 sm:h-72 lg:h-60 xl:h-80 xl:w-1/2">
+        <div class="relative h-96 sm:h-80 lg:h-96 xl:w-1/2">
             <div class="absolute top-0">
                 <h5>{project.name}</h5>
                 <div class="italic mb-4">{project.date}</div>
