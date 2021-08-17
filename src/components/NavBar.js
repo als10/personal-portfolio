@@ -42,7 +42,7 @@ const navItemsList = sections.map((s, i) => <NavItem key={i} text={s}/>)
 
 const MenuButton = ({menuActive, setMenuActive}) => (
     <button
-        class="inline-flex md:hidden"
+        class="inline-flex z-50 md:hidden"
         onClick={() => setMenuActive(!menuActive)}
     >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
@@ -57,7 +57,6 @@ const MenuButton = ({menuActive, setMenuActive}) => (
 const MobileMenu = ({menuActive, setMenuActive}) => (
     <div
         class={`${menuActive ? 'flex flex-col' : 'hidden'} absolute md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
-        <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
         {navItemsList}
         <ResumeButton/>
         <Socials/>
