@@ -53,7 +53,7 @@ const MenuButton = ({menuActive, setMenuActive}) => (
     </button>
 )
 
-const MobileMenu = ({darkMode, toggleTheme, menuActive, setMenuActive}) => (
+const MobileMenu = ({menuActive, setMenuActive}) => (
     <div
         class={`${menuActive ? 'flex flex-col' : 'hidden'} absolute md:hidden fixed right-0 p-16 bg-gray-900 text-white h-screen justify-center space-y-6 top-0`}>
         <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
@@ -84,8 +84,7 @@ export const NavBar = ({darkMode, toggleTheme}) => {
                     <MenuButton menuActive={menuActive} setMenuActive={setMenuActive}/>
                 </div>
             </div>
-            <MobileMenu darkMode={darkMode} toggleTheme={toggleTheme} menuActive={menuActive}
-                        setMenuActive={setMenuActive}/>
+            <MobileMenu menuActive={menuActive} setMenuActive={setMenuActive}/>
         </header>
     )
 }

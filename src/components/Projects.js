@@ -28,14 +28,14 @@ const Project = ({project}) => (
     <article
         class="h-full xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
         <StaticImage
-            class="hidden sm:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
+            class="hidden md:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
             alt="project demo"
             src="../images/placeholder_image.png"
         />
         <div class="relative h-96 sm:h-72 lg:h-60 xl:h-80 xl:w-1/2">
             <div class="absolute top-0">
-                <h5 class="mb-4">{project.name}</h5>
-                <div class="italic">{project.date}</div>
+                <h5>{project.name}</h5>
+                <div class="italic mb-4">{project.date}</div>
                 <MDXRenderer>{project.body}</MDXRenderer>
             </div>
             <div class="absolute bottom-0">
@@ -119,11 +119,22 @@ const ProjectsCarousel = () => {
     </div>
 }
 
+const ViewMoreButton = () => (
+    <a
+        class="bg-black dark:bg-gray-200 border-0 m-6 p-4 rounded-2xl font-medium text-white dark:text-black text-lg md:text-xl focus:outline-none hover:bg-gray-600 dark:hover:bg-gray-400"
+        href="https://als10.github.io"
+        target="_blank"
+    >
+        View More Projects
+    </a>
+)
+
 export default () => (
     <section id="projects" class="h-full xl:h-screen">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
             <ProjectsCarousel/>
+            <ViewMoreButton/>
         </div>
     </section>
 )
