@@ -2,13 +2,7 @@ import React, {useState} from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll'
 import {Socials} from "./Socials"
 import Resume from "../static/Resume.pdf"
-
-const sections = [
-    'About',
-    'Experience',
-    'Projects',
-    'Skills'
-]
+import sections from "../constants/sections.json"
 
 const DarkModeToggle = ({darkMode, toggleTheme}) => (
     <button
