@@ -1,39 +1,5 @@
-import * as React from "react"
-
-const skills = [
-    {
-        type: "Frontend",
-        technologies: [
-            "ReactJS",
-            "GatsbyJS",
-            "Flutter",
-            "Tailwind CSS",
-            "HTML",
-            "CSS",
-            "SASS"
-        ]
-    },
-    {
-        type: "Backend",
-        technologies: [
-            "NodeJS",
-            "Express",
-            "MongoDB",
-            "Django",
-            "MySQL"
-        ]
-    },
-    {
-        type: "Miscellaneous",
-        technologies: [
-            "Figma",
-            "Unity",
-            "Android Studio",
-            "Java",
-            "Python"
-        ]
-    }
-]
+import React from "react"
+import skills from "../../content/skills.json"
 
 const Skill = ({skill}) => (
     <div class="flex flex-col items-center">
