@@ -1,7 +1,7 @@
 import React from "react"
 import socialMediaIds from "../constants/socials.json"
 
-export const Socials = () => (
+export default () => (
     <div class="flex space-x-4 justify-center mb-8">
         {socialMediaIds.map(s =>
             <a href={`${s.baseUrl}${s.id}`} target="_blank" rel="noreferrer">

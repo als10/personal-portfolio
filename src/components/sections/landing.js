@@ -1,9 +1,9 @@
 import * as React from "react"
 import Typewriter from 'typewriter-effect'
-import {Socials} from "../socials";
+import Socials from "../socials";
 import typewriterStrings from "../../constants/typewriterStrings.json"
 
-export const Landing = () => (
+export default () => (
     <section class="relative inset-0 h-screen sm:top-0 lg:pl-8 xl:pl-16">
         <div>
             <div class="mb-24 space-y-8">

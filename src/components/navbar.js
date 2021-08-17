@@ -1,6 +1,6 @@
 import React, {useState} from "react"
 import scrollTo from 'gatsby-plugin-smoothscroll'
-import {Socials} from "./socials"
+import Socials from "./socials"
 import Resume from "../static/resume.pdf"
 import sections from "../constants/sections.json"
 
@@ -66,7 +66,7 @@ const ResumeButton = () => (
     </a>
 )
 
-export const Navbar = ({darkMode, toggleTheme}) => {
+export default ({darkMode, toggleTheme}) => {
     const [menuActive, setMenuActive] = useState(false)
     const [bgActive, setBgActive] = useState(false)
 

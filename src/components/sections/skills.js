@@ -17,7 +17,7 @@ const Skillset = ({skillset}) => (
     </div>
 )
 
-export const Skills = () => (
+export default () => (
     <section
         id="skills"
         class="flex-col h-full"
