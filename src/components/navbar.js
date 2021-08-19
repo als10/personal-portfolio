@@ -59,7 +59,7 @@ const MobileMenu = ({menuActive, setMenuActive}) => (
 
 const ResumeButton = () => (
     <a
-        className="resume-btn hvr-sweep-to-top md:inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 py-1 px-3 rounded text-center"
+        className="resume-btn hvr-sweep-to-right md:inline-flex text-gray-600 dark:text-gray-200 bg-gray-100 dark:bg-gray-600 py-1 px-3 rounded text-center"
         href={Resume}
         target="_blank">
         Resume
