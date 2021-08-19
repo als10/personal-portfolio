@@ -163,4 +163,11 @@
     .project-btn.hvr-sweep-to-right:hover, .project-btn.hvr-sweep-to-right:focus, .project-btn.hvr-sweep-to-right:active {
         @apply text-black
     }
+
+    .more-projects-btn.hvr-sweep-to-top:before {
+        @apply bg-gray-200 dark:bg-gray-800 rounded-lg
+    }
+    .more-projects-btn.hvr-sweep-to-top:hover, .more-projects-btn.hvr-sweep-to-top:focus, .more-projects-btn.hvr-sweep-to-top:active {
+        @apply text-black dark:text-white
+    }
 }

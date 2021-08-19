@@ -121,7 +121,7 @@ const ProjectsCarousel = () => {
 
 const ViewMoreButton = () => (
     <a
-        class="bg-black dark:bg-gray-200 border-0 m-6 p-4 rounded-2xl font-medium text-white dark:text-black text-lg md:text-xl focus:outline-none hover:bg-gray-600 dark:hover:bg-gray-400"
+        class="more-projects-btn hvr-sweep-to-top bg-black dark:bg-gray-200 border-0 m-6 p-4 rounded-lg font-medium text-white dark:text-black text-lg md:text-xl focus:outline-none"
         href="https://als10.github.io"
         target="_blank"
     >
