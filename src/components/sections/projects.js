@@ -19,7 +19,7 @@ const Button = ({text, url}) => (
 )
 
 const Technology = ({item}) => (
-    <HighlightedText style="bg-white dark:text-gray-800">
+    <HighlightedText style="hvr-hollow bg-white dark:text-gray-800">
         {item}
     </HighlightedText>
 )
