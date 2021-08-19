@@ -13,7 +13,7 @@ const HighlightedText = ({style, children}) => (
 )
 
 const Button = ({text, url}) => (
-    <HighlightedText style="xl:p-4 bg-gray-600 text-white hover:bg-white hover:text-black hover:border-black">
+    <HighlightedText style="project-btn hvr-sweep-to-right xl:p-4 bg-gray-600 text-white">
         <a href={url} target="_blank">{text}</a>
     </HighlightedText>
 )

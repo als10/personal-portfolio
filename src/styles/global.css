@@ -156,4 +156,11 @@
     .experience-btn.hvr-sweep-to-right:hover, .experience-btn.hvr-sweep-to-right:focus, .experience-btn.hvr-sweep-to-right:active {
         @apply text-white
     }
+
+    .project-btn.hvr-sweep-to-right:before {
+        @apply bg-white rounded-lg
+    }
+    .project-btn.hvr-sweep-to-right:hover, .project-btn.hvr-sweep-to-right:focus, .project-btn.hvr-sweep-to-right:active {
+        @apply text-black
+    }
 }
