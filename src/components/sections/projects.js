@@ -30,7 +30,7 @@ const Project = ({project}) => (
         <StaticImage
             class="hidden lg:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
             alt="project demo"
-            src="../images/placeholder_image.png"
+            src="../../images/placeholder_image.png"
         />
         <div class="relative h-96 sm:h-80 lg:h-96 xl:w-1/2">
             <div class="absolute top-0">

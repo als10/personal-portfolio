@@ -29,7 +29,7 @@ export default () => {
         <Column>
             <StaticImage
                 alt="a picture of myself"
-                src="../images/profile.png"
+                src="../../images/profile.png"
             />
         </Column>
     </section>
