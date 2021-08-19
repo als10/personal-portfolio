@@ -1,4 +1,4 @@
-import React, {useState} from "react"
+import React, {useState, useEffect} from "react"
 import {graphql, useStaticQuery} from "gatsby";
 import {MDXRenderer} from "gatsby-plugin-mdx";
 
@@ -52,6 +52,10 @@ const ExperienceDescription = ({experience}) => (
 )
 
 export default () => {
+    const [selectedExperience, setSelectedExperience] = useState(null)
+    const [experiences, setExperiences] = useState(null)
+    const [timeline, setTimeline] = useState(null)
+
     const data = useStaticQuery(graphql`
         query {
           allMdx(filter: {frontmatter: {type: {eq: "Experience"}}}) {
@@ -69,41 +73,48 @@ export default () => {
         }
     `)
 
-    const experiences = data.allMdx.nodes.map(e => ({
-        id: e.id,
-        role: e.frontmatter.role,
-        company: e.frontmatter.company,
-        yearStart: e.frontmatter.yearStart,
-        duration: e.frontmatter.duration,
-        description: e.body,
-    }))
+    useEffect(() => {
+        const experiencesList = data.allMdx.nodes.map(e => ({
+            id: e.id,
+            role: e.frontmatter.role,
+            company: e.frontmatter.company,
+            yearStart: e.frontmatter.yearStart,
+            duration: e.frontmatter.duration,
+            description: e.body,
+        }))
 
-    const currentYear = new Date().getFullYear()
-    const earliestYear = experiences.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
+        const currentYear = new Date().getFullYear()
+        const earliestYear = experiencesList.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
 
-    let timeline = []
-    for (let year = currentYear; year >= earliestYear; year--) {
-        timeline.push({
-            year: year,
-            experiences: experiences.filter(e => e.yearStart === year)
-        })
-    }
+        let timelineList = []
+        for (let year = currentYear; year >= earliestYear; year--) {
+            timelineList.push({
+                year: year,
+                experiences: experiencesList.filter(e => e.yearStart === year)
+            })
+        }
 
-    const [experience, setExperience] = useState(experiences[0])
+        setSelectedExperience(experiencesList[0])
+        setExperiences(experiencesList)
+        setTimeline(timelineList)
+    }, [])
 
     return (
-        <section id="experience">
-            <div class="flex flex-col">
-                <h4>Where I've worked</h4>
-                <div class="flex flex-col lg:space-x-8 lg:flex-row items-center">
-                    <Timeline
-                        timeline={timeline}
-                        selectedExperience={experience}
-                        setExperience={setExperience}
-                    />
-                    <ExperienceDescription experience={experience}/>
-                </div>
-            </div>
-        </section>
+        <>
+            {experiences && timeline &&
+                <section id="experience">
+                    <div class="flex flex-col">
+                        <h4>Where I've worked</h4>
+                        <div class="flex flex-col lg:space-x-8 lg:flex-row items-center">
+                            <Timeline
+                                timeline={timeline}
+                                selectedExperience={selectedExperience}
+                                setExperience={setSelectedExperience}
+                            />
+                            <ExperienceDescription experience={selectedExperience}/>
+                        </div>
+                    </div>
+                </section>}
+        </>
     )
 }
