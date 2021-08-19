@@ -28,7 +28,7 @@
     }
 
     section {
-        @apply sm:h-screen flex items-center py-16
+        @apply flex items-center py-16;
         height: max(100vh, 100%);
     }
 

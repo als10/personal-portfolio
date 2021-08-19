@@ -39,7 +39,7 @@ const Timeline = ({timeline, selectedExperience, setExperience}) => (
 )
 
 const ExperienceDescription = ({experience}) => (
-    <div class="lg:w-3/5 xl:w-2/3">
+    <div class="lg:w-3/5 xl:w-2/3 transition duration-500">
         <div class="mb-4 space-y-2">
             <div class="flex flex-wrap space-x-2">
                 <h5>{experience.role}</h5>
