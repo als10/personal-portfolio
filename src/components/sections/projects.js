@@ -130,7 +130,7 @@ const ViewMoreButton = () => (
 )
 
 export default () => (
-    <section id="projects" class="h-full xl:h-screen">
+    <section id="projects">
         <div class="w-full flex flex-col items-center justify-center">
             <h4>Stuff I've made</h4>
             <ProjectsCarousel/>

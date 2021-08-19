@@ -28,8 +28,7 @@
     }
 
     section {
-        @apply flex items-center py-16;
-        height: max(100vh, 100%);
+        @apply min-h-screen flex items-center py-16;
     }
 
     .slick-dots li button::before {

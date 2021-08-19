@@ -20,7 +20,7 @@ const Skillset = ({skillset}) => (
 export default () => (
     <section
         id="skills"
-        class="flex-col h-full"
+        class="flex-col"
     >
         <h4>What do I know</h4>
         {skills.map(s => <Skillset skillset={s}/>)}
