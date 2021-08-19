@@ -26,7 +26,7 @@ const DarkModeToggle = ({darkMode, toggleTheme}) => (
 const NavItem = ({text}) => (
     <button
         onClick={() => scrollTo(`#${text.toLowerCase()}`)}
-        class="text-center hvr-underline-from-right"
+        class="text-center hvr-underline-from-left"
     >
         {text}
     </button>
