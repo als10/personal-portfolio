@@ -145,4 +145,15 @@
         left: 0;
         right: 0;
     }
+
+    .resume-btn.hvr-sweep-to-top:before {
+        @apply bg-gray-200 dark:bg-gray-400
+    }
+
+    .experience-btn.hvr-sweep-to-right:before {
+        @apply bg-gray-600
+    }
+    .experience-btn.hvr-sweep-to-right:hover, .experience-btn.hvr-sweep-to-right:focus, .experience-btn.hvr-sweep-to-right:active {
+        @apply text-white
+    }
 }
