@@ -40,7 +40,7 @@ const MenuButton = ({menuActive, setMenuActive}) => (
         onClick={() => setMenuActive(!menuActive)}
     >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
-             stroke="currentColor">
+             stroke={menuActive ? "white" : "currentColor"}>
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={menuActive
                 ? "M6 18L18 6M6 6l12 12"
                 : "M4 6h16M4 12h16M4 18h16"}/>
