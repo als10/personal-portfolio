@@ -7,7 +7,7 @@ import sections from "../constants/sections.json"
 const DarkModeToggle = ({darkMode, toggleTheme}) => (
     <button
         onClick={toggleTheme}
-        class="mr-auto"
+        class="hvr-bounce-in mr-auto"
     >
         <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
              stroke="currentColor">
@@ -36,7 +36,7 @@ const navItemsList = sections.map((s, i) => <NavItem key={i} text={s}/>)
 
 const MenuButton = ({menuActive, setMenuActive}) => (
     <button
-        class="inline-flex z-50 md:hidden"
+        class="hvr-bounce-in inline-flex z-50 md:hidden"
         onClick={() => setMenuActive(!menuActive)}
     >
         <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="currentColor" viewBox="0 0 32 32"
