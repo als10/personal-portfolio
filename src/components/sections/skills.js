@@ -4,7 +4,7 @@ import skills from "../../../content/skills.json"
 const Skill = ({skill}) => (
     <div class="hvr-bounce-in flex flex-col items-center">
         <div class="h-8 sm:h-16 w-8 sm:w-16 bg-white rounded-lg mb-4"/>
-        <div class="text-center">{skill}</div>
+        <div class="text-sm sm:text-base lg:text-md text-center">{skill}</div>
     </div>
 )
 
