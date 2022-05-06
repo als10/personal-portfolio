@@ -18,4 +18,5 @@ module.exports = {
     },
     "gatsby-plugin-mdx",
   ],
+  pathPrefix: "/personal-portfolio",
 };
