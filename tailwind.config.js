@@ -5,6 +5,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["poppins"]
+      },
+      spacing: {
+        '128': '32rem',
       }
     },
   },
@@ -12,4 +15,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
+  important: true,
 }

@@ -16,6 +16,13 @@ module.exports = {
         path: `${__dirname}/content`,
       }
     },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        icon: 'src/images/icon.png',
+      },
+    },
+    "gatsby-plugin-react-helmet",
     "gatsby-plugin-mdx",
   ],
 };
