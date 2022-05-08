@@ -28,8 +28,9 @@ export default () => {
         </Column>
         <Column>
             <StaticImage
+                className="w-2/3 mx-auto mt-6 p-1 border rounded"
                 alt="a picture of myself"
-                src="../../images/profile.png"
+                src="../../images/profile.jpg"
             />
         </Column>
     </section>

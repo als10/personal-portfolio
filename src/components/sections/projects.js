@@ -1,10 +1,11 @@
 import {graphql, useStaticQuery} from "gatsby"
 import {MDXRenderer} from 'gatsby-plugin-mdx'
-import {StaticImage} from "gatsby-plugin-image"
+import {getImage, GatsbyImage} from "gatsby-plugin-image"
 import React from "react"
 import Slider from "react-slick"
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import "slick-carousel/slick/slick.css"
+import "slick-carousel/slick/slick-theme.css"
+import "../../styles/slick-override.css"
 
 const HighlightedText = ({style, children}) => (
     <div class={`text-sm sm:text-base p-2 m-1 rounded-lg ${style ?? ""}`}>
@@ -24,32 +25,36 @@ const Technology = ({item}) => (
     </HighlightedText>
 )
 
-const Project = ({project}) => (
-    <article
-        class="h-full xl:flex xl:space-x-12 bg-gray-200 dark:bg-gray-800 p-8 md:p-12 lg:p-16 rounded-xl items-center justify-center">
-        <StaticImage
-            class="hidden lg:block mx-auto mb-8 xl:mt-8 w-4/5 xl:w-1/2 rounded-lg"
-            alt="project demo"
-            src="../../images/placeholder_image.png"
-        />
-        <div class="relative h-96 sm:h-80 lg:h-96 xl:w-1/2">
-            <div class="absolute top-0">
-                <h5>{project.name}</h5>
-                <div class="italic mb-4">{project.date}</div>
-                <MDXRenderer>{project.body}</MDXRenderer>
-            </div>
-            <div class="absolute bottom-0">
-                <div class="mb-2 flex flex-wrap">
-                    {project.stack.map(e => <Technology item={e}/>)}
+const Project = ({project}) => {
+    return (
+        <article
+            class="m-auto h-full lg:w-4/5 xl:w-2/3 2xl:w-1/2 bg-gray-200 dark:bg-gray-800 p-8 rounded-xl items-center justify-center">
+            {project.img && (
+                <img
+                    class="hidden md:block mx-auto mb-8 rounded-lg"
+                    alt="project demo"
+                    src={project.img}
+                />
+            )}
+            <div>
+                <div>
+                    <h5>{project.name}</h5>
+                    <div class="italic mb-4">{project.date}</div>
+                    <MDXRenderer>{project.body}</MDXRenderer>
                 </div>
-                <div class="flex flex-wrap">
-                    {project.link && <Button text="Visit Project" url={project.link}/>}
-                    {project.github && <Button text="View Code" url={project.github}/>}
+                <div className="mt-6">
+                    <div class="mb-2 flex flex-wrap">
+                        {project.stack.map(e => <Technology item={e}/>)}
+                    </div>
+                    <div class="flex flex-wrap">
+                        {project.link && <Button text="Visit Project" url={project.link}/>}
+                        {project.github && <Button text="View Code" url={project.github}/>}
+                    </div>
                 </div>
             </div>
-        </div>
-    </article>
-)
+        </article>
+    )
+}
 
 const ProjectsCarousel = () => {
 
@@ -63,6 +68,9 @@ const ProjectsCarousel = () => {
                 github
                 link
                 date
+                img {
+                    publicURL
+                }
               }
               id
               body
@@ -79,7 +87,8 @@ const ProjectsCarousel = () => {
             date: p.frontmatter.date,
             stack: p.frontmatter.stack,
             github: p.frontmatter.github,
-            link: p.frontmatter.link
+            link: p.frontmatter.link,
+            img: p.frontmatter.img ? p.frontmatter.img.publicURL : undefined
         }
     ))
 
@@ -132,7 +141,7 @@ const ViewMoreButton = () => (
 export default () => (
     <section id="projects">
         <div class="w-full flex flex-col items-center justify-center">
-            <h4>Stuff I've made</h4>
+            <h4>What I've built</h4>
             <ProjectsCarousel/>
             <ViewMoreButton/>
         </div>

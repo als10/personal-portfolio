@@ -45,7 +45,7 @@ const ExperienceDescription = ({experience}) => (
                 <h5>{experience.role}</h5>
                 <h6>{`@ ${experience.company}`}</h6>
             </div>
-            <div class="lg:text-xl font-light">{experience.duration}</div>
+            <div class="lg:text-xl font-light italic">{experience.duration}</div>
         </div>
         <MDXRenderer>{experience.description}</MDXRenderer>
     </div>
@@ -104,7 +104,7 @@ export default () => {
             {experiences && timeline &&
                 <section id="experience">
                     <div class="flex flex-col">
-                        <h4>Where I've worked</h4>
+                        <h4 className="ml-auto">Where I've worked</h4>
                         <div class="flex flex-col lg:space-x-8 lg:flex-row items-center">
                             <Timeline
                                 timeline={timeline}
