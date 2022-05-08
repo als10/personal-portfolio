@@ -28,7 +28,7 @@
     }
 
     section {
-        @apply min-h-screen flex items-center py-16;
+        @apply min-h-screen flex items-center py-16
     }
 
     .slick-dots li button:before {
@@ -41,6 +41,16 @@
 }
 
 @layer utilities {
+    .slick-track {
+        @apply flex items-center justify-center
+    }
+
+    .framed {
+        box-shadow:
+          -50px -50px 0 -40px var(--red),
+          50px 50px 0 -40px var(--red);
+    }
+
     /* Sweep To Right */
     .hvr-sweep-to-right {
         display: inline-block;

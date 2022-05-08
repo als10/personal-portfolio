@@ -1,0 +1,11 @@
+.slick-track {
+    @apply flex items-center justify-center
+}
+
+.slick-dots li button:before {
+    @apply dark:text-gray-200
+}
+
+.slick-dots li.slick-active button:before {
+    @apply dark:text-white
+}
