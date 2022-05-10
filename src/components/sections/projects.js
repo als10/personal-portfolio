@@ -63,6 +63,7 @@ const ProjectsCarousel = () => {
           allMdx(filter: {frontmatter: {type: {eq: "Project"}}}) {
             nodes {
               frontmatter {
+                rank
                 stack
                 name
                 github
@@ -82,6 +83,7 @@ const ProjectsCarousel = () => {
     const projects = data.allMdx.nodes.map(p => (
         {
             id: p.id,
+            rank: p.frontmatter.rank,
             name: p.frontmatter.name,
             body: p.body,
             date: p.frontmatter.date,
@@ -90,7 +92,7 @@ const ProjectsCarousel = () => {
             link: p.frontmatter.link,
             img: p.frontmatter.img ? p.frontmatter.img.publicURL : undefined
         }
-    ))
+    )).sort((a, b) => b.rank - a.rank)
 
     const Arrow = ({onClick, direction}) => (
         <button onClick={onClick} class={`absolute z-10 top-1/2 ${direction === 'right' ? "-right-16" : "-left-16"}`}>

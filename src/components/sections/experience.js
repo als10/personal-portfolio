@@ -63,6 +63,7 @@ export default () => {
               id
               body
               frontmatter {
+                rank
                 company
                 duration
                 role
@@ -77,13 +78,14 @@ export default () => {
     useEffect(() => {
         const experiencesList = data.allMdx.nodes.map(e => ({
             id: e.id,
+            rank: e.frontmatter.rank,
             role: e.frontmatter.role,
             company: e.frontmatter.company,
             yearStart: e.frontmatter.yearStart,
             duration: e.frontmatter.duration,
             website: e.frontmatter.website,
             description: e.body,
-        }))
+        })).sort((a, b) => b.rank - a.rank)
 
         const currentYear = new Date().getFullYear()
         const earliestYear = experiencesList.reduce((prev, curr) => prev.yearStart > curr.yearStart ? curr : prev).yearStart
