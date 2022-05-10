@@ -12,7 +12,7 @@ const Skill = ({skill}) => (
 )
 
 const Skillset = ({skillset}) => (
-    <div class="mx-auto my-4 p-8 sm:p-16 bg-gray-200 dark:bg-gray-800 rounded-lg w-full sm:w-4/5">
+    <div class="mx-auto my-8 rounded-lg w-full sm:w-4/5">
         <h5 class="mb-8">{skillset.type}</h5>
         <div class="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4">
             {skillset.technologies.map(t => <Skill skill={t}/>)}

@@ -20,7 +20,7 @@ const Button = ({text, url}) => (
 )
 
 const Technology = ({item}) => (
-    <HighlightedText style="hvr-hollow bg-white dark:text-gray-800">
+    <HighlightedText style="hvr-hollow bg-gray-200 dark:bg-white dark:text-gray-800">
         {item}
     </HighlightedText>
 )
@@ -28,7 +28,7 @@ const Technology = ({item}) => (
 const Project = ({project}) => {
     return (
         <article
-            class="m-auto h-full lg:w-4/5 xl:w-2/3 2xl:w-1/2 bg-gray-200 dark:bg-gray-800 p-8 rounded-xl items-center justify-center">
+            class="m-auto h-full lg:w-4/5 xl:w-2/3 2xl:w-1/2 p-8 rounded-xl items-center justify-center">
             {project.img && (
                 <img
                     class="hidden md:block mx-auto mb-8 rounded-lg"
