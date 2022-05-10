@@ -43,7 +43,7 @@ const ExperienceDescription = ({experience}) => (
         <div class="mb-4 space-y-2">
             <div class="flex flex-wrap space-x-2">
                 <h5>{experience.role}</h5>
-                <h6>{`@ ${experience.company}`}</h6>
+                <h6>@<a class="ml-2 underline" href={experience.website || '#'} target="_blank">{experience.company}</a></h6>
             </div>
             <div class="lg:text-xl font-light italic">{experience.duration}</div>
         </div>
@@ -67,6 +67,7 @@ export default () => {
                 duration
                 role
                 yearStart
+                website
               }
             }
           }
@@ -80,6 +81,7 @@ export default () => {
             company: e.frontmatter.company,
             yearStart: e.frontmatter.yearStart,
             duration: e.frontmatter.duration,
+            website: e.frontmatter.website,
             description: e.body,
         }))
 
