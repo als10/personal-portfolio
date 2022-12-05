@@ -1,0 +1,1 @@
+{"version":3,"file":"component---src-pages-index-js-ab9004db9540810be904.js","mappings":"kJAEA,UAAeA,EAAG,O","sources":["webpack://alston-s-portfolio/./src/pages/index.js"],"sourcesContent":["import App from './App';\n\nexport default App;\n"],"names":["App"],"sourceRoot":""}
