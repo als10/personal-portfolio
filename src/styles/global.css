@@ -36,7 +36,7 @@
     }
 
     .slick-dots li.slick-active button:before {
-        @apply dark:text-white
+        @apply dark:text-gray-100
     }
 }
 
@@ -186,7 +186,7 @@
         /* Hack to improve aliasing on mobile/tablet devices */
     }
     .hvr-hollow:hover, .hvr-hollow:focus, .hvr-hollow:active {
-        @apply text-black dark:text-white;
+        @apply text-gray-900 dark:text-gray-100;
         background: none;
     }
 
@@ -199,20 +199,20 @@
         @apply bg-gray-600 rounded-md
     }
     .experience-btn.hvr-sweep-to-right:hover, .experience-btn.hvr-sweep-to-right:focus, .experience-btn.hvr-sweep-to-right:active {
-        @apply text-white
+        @apply text-gray-100
     }
 
     .project-btn.hvr-sweep-to-right:before {
         @apply bg-gray-300 rounded-lg
     }
     .project-btn.hvr-sweep-to-right:hover, .project-btn.hvr-sweep-to-right:focus, .project-btn.hvr-sweep-to-right:active {
-        @apply text-black
+        @apply text-gray-900
     }
 
     .more-projects-btn.hvr-sweep-to-top:before {
-        @apply bg-gray-200 dark:bg-gray-800 rounded-lg
+        @apply bg-gray-400 dark:bg-gray-600 rounded-lg
     }
     .more-projects-btn.hvr-sweep-to-top:hover, .more-projects-btn.hvr-sweep-to-top:focus, .more-projects-btn.hvr-sweep-to-top:active {
-        @apply text-black dark:text-white
+        @apply text-gray-900 dark:text-gray-100
     }
 }

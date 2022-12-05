@@ -7,5 +7,5 @@
 }
 
 .slick-dots li.slick-active button:before {
-    @apply dark:text-white
+    @apply dark:text-gray-100
 }

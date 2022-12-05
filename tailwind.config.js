@@ -1,14 +1,14 @@
 module.exports = {
-  purge: ['./src/**/*.{js,jsx,ts,tsx}'],
+  content: ['./src/**/*.{js,jsx,ts,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     extend: {
       fontFamily: {
-        sans: ["poppins"]
+        sans: ['poppins'],
       },
       spacing: {
-        '128': '32rem',
-      }
+        128: '32rem',
+      },
     },
   },
   variants: {
@@ -16,4 +16,4 @@ module.exports = {
   },
   plugins: [],
   important: true,
-}
+};
